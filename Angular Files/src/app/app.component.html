@@ -1,0 +1,35 @@
+
+<!---
+SWE 642 Assignment
+
+Group Details:
+
+ Joel Sadanand Samson G01352483
+ Ramaswamy Iyappan G01348097
+ Abhijeet Banerjee G01349260
+ Bhargava Canakapally G01351583
+-->
+<!--Nav bar-->
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: green;">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <!--Router to Welcome Component-->
+      <a routerLink="welcome" routerLinkActive="active" class="nav-link">Welcome</a>
+    </li>
+    <li class="nav-item">
+      <!--Router to Create Student Component-->
+      <a routerLink="create-student" routerLinkActive="active" class="nav-link">SURVEY form</a>
+    </li>
+    <li class="nav-item">
+      <!--Router to student listComponent-->
+      <a routerLink="students" routerLinkActive="active" class="nav-link">Student List</a>
+    </li>
+   
+  </ul>
+</nav>
+<div class="container">
+  <!--Router outlet-->
+<router-outlet></router-outlet></div>
+<!---Footer Component-->
+<app-footer></app-footer>
+

@@ -1,0 +1,320 @@
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<br>
+<p class="w3-container w3-large">
+  Please fill out the Survey regarding the semester start Campus Visit Held on
+  August 19th
+</p>
+<p class="w3-container w3-large">
+  Feedback is Greatly appreciated and will help us improve on certain aspects
+  during the next visit
+</p>
+<h3>Enter Details Below</h3>
+
+<!---Survey Form-->
+<form autocomplete="on" (ngSubmit)="onSubmit()">
+  <fieldset class="w3-container">
+    <legend>User Information</legend>
+    <table class="w3-table">
+      <tr>
+        <!--First Name-->
+        <div class="form-group">
+          <label for="firstName">First name:*</label>
+          <input
+            ngModel
+            name="firstName"
+            id="firstName"
+            #firstName="ngModel"
+            type="text"
+            (change)="log(firstName)"
+            size="20"
+            autofocus="on"
+            placeholder="Enter your First Name"
+            required
+            class="from-control"
+            pattern="[A-Za-z]+"
+            [(ngModel)]="stude.firstName"
+          /><br />
+          <div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">
+            <div *ngIf="firstName.errors?.['required']">First Name Required</div>
+            <div *ngIf="firstName.errors?.['pattern']">
+              First name should be alphabets
+            </div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <label for="lastName">Last name:*</label>
+          <input
+            ngModel
+            name="lastName"
+            id="lastName"
+            #lastName="ngModel"
+            type="text"
+            (change)="log(lastName)"
+            size="20"
+            placeholder="Enter your Last Name"
+            required
+            class="from-control"
+            pattern="[A-Za-z]+"
+            [(ngModel)]="stude.lastName"
+          /><br />
+          <div
+            *ngIf="
+              !lastName.valid && lastName.touched;
+              then thenBlock;
+              else elseBlock
+            "
+          ></div>
+          <ng-template #thenBlock>
+            <div class="alert alert-danger">
+              <div *ngIf="lastName.errors?.['required']">Last Name Required</div>
+              <div *ngIf="lastName.errors?.['pattern']">
+                Last name should be alphabets
+              </div>
+            </div></ng-template
+          >
+          <ng-template #elseBlock></ng-template>
+
+          <ng-template #elseBlock
+            ><style>
+              .lerrors {
+                display: none;
+              }
+            </style></ng-template
+          >
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <!---GMU Mail-->
+          <label for="emailId">Enter your GMU Email:*</label>
+          <input
+            ngModel
+            name="emailId"
+            id="emailId"
+            #emailId="ngModel"
+            type="emailId"
+            (change)="log(emailId)"
+            placeholder="your_username@gmu.edu"
+            required
+            class="from-control"
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            [(ngModel)]="stude.emailId"
+          />
+          <br />
+          <div class="alert alert-danger" *ngIf="!emailId.valid && emailId.touched">
+            <div *ngIf="emailId.errors?.['required']">emailId Required</div>
+            <div *ngIf="emailId.errors?.['pattern']">
+              Please enter valid email
+            </div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <!--Address-->
+          <label for="address">Street Address*</label>
+          <input
+            ngModel
+            size="40"
+            name="address"
+            id="address"
+            #address="ngModel"
+            type="text"
+            (change)="log(address)"
+            placeholder="Please enter your address"
+            class="from-control"
+            pattern="[A-Za-z0-9]+"
+            [(ngModel)]="stude.streetAddress"
+          />
+          <br />
+          <div
+            class="alert alert-danger"
+            *ngIf="!address.valid && address.touched"
+          >
+            <div *ngIf="address.errors?.['required']">
+              Please enter a address
+            </div>
+            <div *ngIf="address.errors?.['pattern']">
+              Please enter a valid street address
+            </div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <!--City-->
+          <label for="city">City*</label>
+          <input
+            ngModel
+            size="10"
+            name="city"
+            id="city"
+            #city="ngModel"
+            type="text"
+            (change)="log(city)"
+            placeholder="Please enter your City"
+            class="from-control"
+            pattern="[A-Za-z]+"
+            required
+            [(ngModel)]="stude.city"
+          />
+          <br />
+          <div class="alert alert-danger" *ngIf="!city.valid && city.touched">
+            <div *ngIf="city.errors?.['required']">Please enter a city</div>
+            <div *ngIf="city.errors?.['pattern']">
+              Please enter a valid City
+            </div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <!--State-->
+          <label for="state">State*</label>
+          <input
+            ngModel
+            size="10"
+            name="state"
+            id="state"
+            #state="ngModel"
+            type="text"
+            (change)="log(state)"
+            placeholder="Please enter your State"
+            class="from-control"
+            pattern="[A-Za-z]+"
+            required
+            [(ngModel)]="stude.state"
+          />
+          <br />
+          <div class="alert alert-danger" *ngIf="!state.valid && state.touched">
+            <div *ngIf="state.errors?.['required']">Please enter a State</div>
+            <div *ngIf="state.errors?.['pattern']">
+              Please enter a valid State
+            </div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <!--Zip-->
+          <label for="zip">ZIPCODE*</label>
+          <input
+            ngModel
+            size="5"
+            name="zip"
+            id="zip"
+            #zip="ngModel"
+            type="text"
+            (change)="log(zip)"
+            placeholder="Please enter your zip"
+            class="from-control"
+            pattern="[0-9]{5}"
+            required
+            [(ngModel)]="stude.zipcode"
+          />
+          <br />
+          <div class="alert alert-danger" *ngIf="!zip.valid && zip.touched">
+            <div *ngIf="zip.errors?.['required']">Please enter a zip</div>
+            <div *ngIf="zip.errors?.['pattern']">Please enter a valid zip</div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <!--Date-->
+          <label for="date">Date*</label>
+          <input
+            ngModel
+            name="date"
+            id="date"
+            #date="ngModel"
+            type="date"
+            (change)="log(date)"
+            placeholder="Please enter your date"
+            class="from-control"
+            min="2022-8-19"
+            required
+            [(ngModel)]="stude.date"
+          />
+          <br />
+          <div class="alert alert-danger" *ngIf="!zip.valid && zip.touched">
+            <div *ngIf="date.errors?.['required']">Please enter a Date</div>
+          </div>
+        </div>
+      </tr>
+    </table>
+  </fieldset>
+  <fieldset>
+    <legend>Feedback</legend>
+<table style="width:100%">
+        <tr>
+            <!---CheckBox-->
+            <label  class="li" for="liked_most">What did you like the most about the campus visit?*</label><br>
+                <label><input ngModel  name="liked_most"  type="checkbox" id="liked_most" value="Students" >Students</label><br>
+                <label><input ngModel name="liked_most" type="checkbox"  id="liked_most" value="Location" >Location</label><br>
+                <label><input ngModel name="liked_most" type="checkbox"  id="liked_most" value="Campus" >Campus</label><br>
+                <label><input ngModel name="liked_most" type="checkbox"  id="liked_most" value="Atmosphere" >Atmosphere</label><br>
+                <label><input ngModel name="liked_most" type="checkbox"  id="liked_most" value="Dorm Rooms" >Dorm Rooms</label><br>
+                <label><input ngModel name="liked_most" type="checkbox"  id="liked_most" value="Sports" >Sports</label><br>
+            <tr>
+    </table>
+<br>
+    <table style="width:100%">
+      <tr>
+        <!---CheckBox-->
+        
+          <label for="how_did">How did you hear about our University*</label
+          ><br />
+        
+        
+          <label><input name="how_did" type="Radio" id="how_did" value="Friend" />Friend</label
+          ><br />
+          <label><input name="how_did" type="Radio" id="how_did" value="Senior" />Senior</label
+          ><br />
+          <label
+            ><input name="how_did" type="Radio" id="how_did" value="Instagram" />Instagram</label
+          ><br />
+          <label
+            ><input name="how_did" type="Radio" id="how_did" value="Television" />Television</label
+          ><br />
+          <label><input name="how_did" type="Radio" id="how_did" value="Internet" />Internet</label
+          ><br />
+          <label><input name="how_did" type="Radio" id="how_did" value="Other" />Other</label
+          ><br />
+      </tr>
+    </table>
+    <br>
+    <table style="width:100%; background-color: antiquewhite;">
+        <p>Any Comments about the event</p>
+        <textarea name="message" rows="4" cols="90" ngModel placeholder="Please write any comments related to any aspect of the Campus visit."></textarea><br>
+    </table>
+<br>
+    <table style="width:100%; background-color: antiquewhite;">
+        <label for="likely" id="likely" class="li" name="likely">How Likely are you going to be able to Recommend GMU to other People?*</label>
+                <td><select name="likely" id="likely" placeholder="Select" required>
+                    <option value="Very Likely">Very Likely</option>
+                    <option value="Likely">Likely</option>
+                    <option value="Unlikely">Unlikely</option>
+                    </select>
+    </table>
+  </fieldset>
+
+  
+    <button class="col-md-4  btn-lg btn-block w3-green btn btn-success bt" name="submit" type="submit" value="Submit">Submit</button>
+    <button class="col-md-4  btn-lg btn-block w3-yellow btn btn-dark bt" type="reset"   value="Reset">Reset</button>
+
+</form>
+

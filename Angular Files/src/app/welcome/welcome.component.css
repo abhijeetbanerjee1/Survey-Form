@@ -1,0 +1,84 @@
+
+/*Welcome Component CSS*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.c{
+    height: 70vh;
+    margin-top: 16%;
+}
+.h{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.b{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background: #000;
+}
+
+.clip-text {
+  position: relative;
+  display: inline-block;
+  padding: .5rem;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+/* font-size: 8em;
+  line-height: 1;
+  background-image: url(https://picsum.photos/480/200?random=10); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.zero-dark-thirty {
+  font-size: 7rem;
+  line-height: .75;
+  background-image: url(https://assets.website-files.com/5cfa97567f806bc160d0dc6c/5cfa97567f806b680cd0de4b_GMU_Science_Bldg_Ext__6995_Rear_of_Bldg___Atrium_Entrance.jpg);
+  background-size: 900px 600px;
+  background-position: -155px -20px;
+}
+
+
+@media (max-width: 420px) {
+  .zero-dark-thirty {
+    font-size: 5rem;
+    background-image: url(https://assets.website-files.com/5cfa97567f806bc160d0dc6c/5cfa97567f806b680cd0de4b_GMU_Science_Bldg_Ext__6995_Rear_of_Bldg___Atrium_Entrance.jpg);
+    background-size: 600px 400px;
+    background-position: -95px 0px;
+  }
+}
+
+.zero {
+  display: block;
+  font-size: 1.2em;
+}
+
+.dark {
+  display: block;
+  margin-left: -3px;
+  font-size: 1.14em;
+}
+
+.thirty {
+  display: block;
+/*   margin-top: 2px; */
+  margin-left: 3px;
+  font-size: 0.91em;
+}
